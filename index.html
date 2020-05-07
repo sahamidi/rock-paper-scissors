@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock-Paper-Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+      function computerPlay(min,max){
+        return  Math.floor(Math.random()*((max-min))+1)
+      }
+   computerSelection = computerPlay(1, 4)
+
+   if (computerSelection == 1){
+     computerSelection = "rock"
+     compDisplay = 1
+   }
+   else if (computerSelection == 2){
+     computerSelection = "paper"
+     compDisplay = 2
+   }
+   else if (computerSelection == 3){
+     computerSelection = "scissors"
+     compDisplay = 3
+   }
+
+   playerSelection = prompt("Type rock paper or scissors")
+   playerSelection = playerSelection.toLowerCase()
+
+   if (playerSelection  == "rock"){
+     playerSelection = 1
+     selectDisplay = "rock"
+   }
+   else if (playerSelection == "paper") {
+     playerSelection = 2
+     selectDisplay = "paper"
+   }
+   else if (playerSelection == "scissors") {
+     playerSelection = 3
+     selectDisplay = "scissors"
+   }
+   else {
+     alert(`enter a valid choice !!!!`)
+   }
+
+    if (computerSelection == "rock" && selectDisplay == "scissors")
+    console.log(`You Lose! ` + computerSelection + ` beats ` + selectDisplay) 
+    else if (computerSelection == "scissors" && selectDisplay == "rock")
+    console.log(`You Lose! ` + selectDisplay + ` beats ` + computerSelection)    
+    else if (compDisplay > playerSelection) {
+     console.log(`You Lose! ` + computerSelection + ` beats ` + selectDisplay)
+    }else if (playerSelection > compDisplay) {
+      console.log(`You win! ` + selectDisplay + ` beats ` + computerSelection)
+    }
+    else {
+      alert("Lucky You!!! You both picked the same item")   
+    }
+    
+</script>
+</body>
+</html> 
