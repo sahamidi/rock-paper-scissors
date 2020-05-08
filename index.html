@@ -8,7 +8,7 @@
   <script>
   function game(){
       function computerPlay(min,max){
-        return  Math.floor(Math.random()*((max-min))+1)
+        return  (Math.floor((Math.random()*(max-min)) + 1))
       }
    computerSelection = computerPlay(1, 4)
 
@@ -47,20 +47,22 @@
 
     if (computerSelection == "rock" && selectDisplay == "scissors") {
       console.log(`You Lose! ` + computerSelection + ` beats ` + selectDisplay) 
-      playerCounter = 0
       compCounter = 1
+      playerCounter = 0
+      tieCounter = 0
     }  
     else if (computerSelection == "scissors" && selectDisplay == "rock"){
     console.log(`You Lose! ` + selectDisplay + ` beats ` + computerSelection) 
-      playerCounter = 1
-      compCounter = 0 
-      tieCounter = 0  
+      playerCounter = 1 
+      compCounter = 0
+      tieCounter = 0
     }  
     else if (compDisplay > playerSelection) {
      console.log(`You Lose! ` + computerSelection + ` beats ` + selectDisplay)
-      playerCounter = 0
+     playerCounter = 0
       compCounter = 1
       tieCounter = 0
+
     }else if (playerSelection > compDisplay) {
       console.log(`You win! ` + selectDisplay + ` beats ` + computerSelection)
       playerCounter = 1
@@ -70,7 +72,7 @@
     else {
       alert("Lucky You!!! You both picked the same item")  
       tieCounter = 1
-      playerCounter = 1
+      playerCounter = 0
       compCounter = 0
     }
   }
@@ -79,17 +81,17 @@ playerScore = 0
 compScore = 0
 tieScore = 0
 
-while (counter < 5){
-  counter = counter + 1
+while ((playerScore+compScore+tieScore)<=4){
   game()
   playerScore = playerCounter + playerScore
   compScore = compScore + compCounter
-  tieScore = 1 + tieScore
-
+  tieScore = tieCounter + tieScore
+  console.log("Player Score " + playerScore + "; " + "Computer Score " + compScore + "; " + "Youve tied " + tieScore + " times")  
+  
 }
-console.log(`The players Score` + playerScore)
-console.log(`The computer Score` + compScore)
-console.log(`You tied ` + tieCounter + ` times`)
+console.log(`The players Score ` + playerScore)
+console.log(`The computer Score ` + compScore)
+console.log(`You tied ` + tieScore)
 
     
 </script>
