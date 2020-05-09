@@ -81,9 +81,10 @@ playerScore = 0
 compScore = 0
 tieScore = 0
 
-while ((playerScore+compScore+tieScore)<=4){
+while ((playerScore+compScore+tieScore)<=4){ //while counter
+  
   game()
-  playerScore = playerCounter + playerScore
+  playerScore = playerCounter + playerScore 
   compScore = compScore + compCounter
   tieScore = tieCounter + tieScore
   console.log("Player Score " + playerScore + "; " + "Computer Score " + compScore + "; " + "Youve tied " + tieScore + " times")  
