@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-    function game() {
-        function computerPlay(min, max) {
+    function game() { //game function calling other functions to execute computer play and human play
+        function computerPlay(min, max) { //function call to define comuter selection
             return (Math.floor((Math.random() * (max - min)) + 1))
         }
 
@@ -22,10 +22,10 @@
             computerDisplay = "scissors"
         }
 
-        let playerDisplay = prompt("Type rock paper or scissors").toLowerCase()
+        let playerDisplay = prompt("Type rock paper or scissors").toLowerCase() //propmpt for human selection
         let playerSelection;
 
-        if (playerDisplay == "rock") {
+        if (playerDisplay == "rock") { //conditional statement to define human selection
             playerSelection = 1
         } else if (playerDisplay == "paper") {
             playerSelection = 2
@@ -37,7 +37,8 @@
         }
 
 
-        if (computerDisplay == "rock" && playerDisplay == "scissors") {
+        if (computerDisplay == "rock" && playerDisplay == "scissors") { //conditional statement for comparison of human to computer
+                                                                        //determining winner in round and counter for number of plays
             console.log(`You Lose! ` + computerDisplay + ` beats ` + playerDisplay)
             compScore = compScore + 1;
         } else if (computerDisplay == "scissors" && playerDisplay == "rock") {
@@ -59,13 +60,15 @@
     let compScore = 0
     let tieScore = 0
 
-    while ((playerScore + compScore + tieScore) <= 4) { //while counter
+    while ((playerScore + compScore + tieScore) <= 4) { //while counter to call all functions for play
+                                                        //and supply counter of number of plays as well as 
+                                                        //keep score
 
         game()
         console.log("Player Score " + playerScore + "; " + "Computer Score " + compScore + "; " + "Youve tied " + tieScore + " times")
 
     }
-    console.log(`The players Score ` + playerScore)
+    console.log(`The players Score ` + playerScore)     //display scores
     console.log(`The computer Score ` + compScore)
     console.log(`You tied ` + tieScore)
 </script>
