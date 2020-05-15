@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock-Paper-Scissors</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>
+        A Silly Game of Rock Paper Scissors!!
+    </h1>
+
+    <p>
+        Please select from one of the following below, and play against your match, the computer.  Play the game until
+        you or the computer reaches a scor of 5 points.
+    </p>
+
+    <div>
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+
+        
+    </div>
+    <div>
+        "Player Score: " playerDisplay
+        "Computer Score: " computerDisplay
+        "Tie Score: " TieDisplay 
+    </div>
+<script>
+    let playerSelection
+    let computerSelection
+    let playerDisplay = 0
+    let computerDisplay = 0
+    let tieDisplay = 0
+
+    
+    document.getElementById("rock").addEventListener("click", function() {
+            playerSelection = 1;
+            game()
+        })
+
+    document.getElementById("paper").addEventListener("click", function() {
+            playerSelection = 2;
+            game();
+        })
+
+    document.getElementById("scissors").addEventListener("click", function() {
+            playerSelection = 3;
+            game();
+        })
+
+    function game() { 
+        function computerPlay(min, max) {
+            return (Math.floor((Math.random() * (max - min)) + 1))
+        }
+
+        computerSelection = computerPlay(1, 4)
+
+
+        if (playerSelection == computerSelection){
+            tieDisplay = 1 + tieDisplay
+        }   
+        else if (playerSelection > computerSelection) {
+    
+        playerDisplay = 1 + playerDisplay
+        }
+        else if (computerSelection>playerSelection){
+        computerDisplay = 1 + computerDisplay
+        }   
+
+        if (computerDisplay==5){
+            alert('Game over Computer Wins!!  Click Rock, Paper, Scissors to Start Over')
+            playerDisplay = 0;
+            tieDisplay = 0;
+            computerDisplay = 0;
+        }
+        else if (playerDisplay==5){
+            alert('Game over Player Wins!! Click Rock, Paper, Scissors to Start Over')
+            playerDisplay = 0;
+            tieDisplay = 0;
+            computerDisplay = 0;
+        }
+console.log('Player Score: ' + playerDisplay + ' Computer Score: ' + computerDisplay + ' Tie: ' + tieDisplay);
+
+    }
+ 
+</script>
+</body>
+</html> 
